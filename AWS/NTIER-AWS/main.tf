@@ -8,6 +8,8 @@ resource "aws_vpc" "ntier_vpc" {
 resource "aws_subnet" "web1" {
   vpc_id     = aws_vpc.ntier_vpc.id
   cidr_block = var.web1_subnet_cidr
-
+  tags = {
+    name = "web1"
+  }
   depends_on = [aws_vpc.ntier_vpc]
 }

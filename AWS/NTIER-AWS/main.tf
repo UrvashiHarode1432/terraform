@@ -5,11 +5,15 @@ resource "aws_vpc" "ntier_vpc" {
   }
 }
 
-resource "aws_subnet" "web1" {
+resource "aws_subnet" "subnets" {
+  count      = length(var.subnet_cidr_ranges)
   vpc_id     = aws_vpc.ntier_vpc.id
-  cidr_block = var.web1_subnet_cidr
+  cidr_block = var.subnet_cidr_ranges[count.index]
   tags = {
-    name = "web1"
+    Name = var.subnet_name[count.index]
   }
-  depends_on = [aws_vpc.ntier_vpc]
 }
+
+
+
+

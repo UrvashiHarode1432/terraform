@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "ntier" {
-  name     = "ntier"
-  location = "ap-south"
+  name     = var.resource_group_name
+  location = var.location
 }

@@ -2,8 +2,8 @@ terraform {
   required_providers {
     #azurerm version constraints
     azurerm = {
-        source  = "hashicorp/azurerm"
-        version = "~>=3.0.0"
+      source  = "hashicorp/azurerm"
+      version = ">=3.0.0"
     }
   }
   #terraform version constraints
@@ -12,6 +12,6 @@ terraform {
 
 provider "azurerm" {
   features {
-    
+
   }
 }

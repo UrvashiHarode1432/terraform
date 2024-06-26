@@ -41,3 +41,35 @@ resource "aws_subnet" "subnet_using_cidrsubnet_function" {
 
   depends_on = [aws_vpc.ntier_vpc]
 }
+
+data "aws_route_table" "default" {
+  vpc_id = aws_vpc.ntier_vpc.id
+
+  depends_on = [aws_vpc.ntier_vpc]
+}
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.ntier_vpc.id
+  tags = {
+    Name = "ntier igw"
+  }
+  depends_on = [aws_vpc.ntier_vpc]
+}
+
+resource "aws_route" "igwroute" {
+  route_table_id         = data.aws_route_table.default.id
+  destination_cidr_block = local.anywhere
+  gateway_id             = aws_internet_gateway.igw.id
+
+  depends_on = [aws_vpc.ntier_vpc, aws_internet_gateway.igw]
+}
+
+
+
+
+
+
+
+
+
+

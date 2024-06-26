@@ -27,3 +27,48 @@ variable "subnet_name" {
   type    = list(string)
   default = ["web1", "web2", "app1", "app2", "db1", "db2"]
 }
+
+variable "web_sg_config" {
+  type = object({
+    name        = string
+    description = string
+    rules = list(object({
+      type        = string
+      from_port   = number
+      to_port     = number
+      protocol    = string
+      cidr_blocks = list(string)
+    }))
+  })
+  description = "this is web security group config"
+}
+
+variable "app_sg_config" {
+  type = object({
+    name        = string
+    description = string
+    rules = list(object({
+      type        = string
+      from_port   = number
+      to_port     = number
+      protocol    = string
+      cidr_blocks = list(string)
+    }))
+  })
+  description = "this is app security group config"
+}
+
+variable "db_sg_config" {
+  type = object({
+    name        = string
+    description = string
+    rules = list(object({
+      type        = string
+      from_port   = number
+      to_port     = number
+      protocol    = string
+      cidr_blocks = list(string)
+    }))
+  })
+  description = "this is db security group config"
+}

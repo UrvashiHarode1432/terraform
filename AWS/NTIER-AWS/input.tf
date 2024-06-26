@@ -3,15 +3,20 @@ variable "vpc_network_cidr" {
   default = "10.10.0.0/16"
 }
 
-variable "subnet_cidr_format" {
-  type    = string
-  default = "10.10.%g.0/24"
+variable "subnet_name_cidr_function" {
+  type    = list(string)
+  default = ["w1", "w2", "a1", "a2", "d1", "d2"]
 }
 
-variable "subnet_name_format_function" {
-  type    = list(string)
-  default = ["subnet_1", "subnet_2", "subnet_3", "subnet_4"]
-}
+# variable "subnet_cidr_format" {
+#   type    = string
+#   default = "10.10.%g.0/24"
+# }
+
+# variable "subnet_name_format_function" {
+#   type    = list(string)
+#   default = ["subnet_1", "subnet_2", "subnet_3", "subnet_4"]
+# }
 
 variable "subnet_cidr_ranges" {
   type    = list(string)

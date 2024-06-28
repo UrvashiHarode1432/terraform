@@ -57,7 +57,18 @@ variable "app_nsg_config" {
   })
 }
 
-
+# map datatype is not working
+# variable "db_info" {
+#   type = map({
+#     db_name        = string
+#     server_name    = string
+#     server_version = number
+#     user_name      = string
+#     password       = string
+#     sku_name       = string
+#     max_size_gb    = number
+#   })
+# }
 
 
 

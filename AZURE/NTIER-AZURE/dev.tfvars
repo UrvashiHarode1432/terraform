@@ -62,3 +62,14 @@ app_nsg_config = [{
       destination_address_prefix  = "*"
   }]
 }]
+
+db_info = {
+  db_name        = "employee"
+  server_name    = "sqlserverfromtf"
+  server_version = 12
+  user_name      = "root"
+  password       = "root@123"
+  sku_name       = "Basic"
+  max_size_gb    = 2
+}
+

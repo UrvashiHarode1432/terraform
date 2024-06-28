@@ -20,12 +20,22 @@ variable "subnet_name_cidr_function" {
 
 variable "subnet_cidr_ranges" {
   type    = list(string)
-  default = ["10.10.11.0/24", "10.10.12.0/24", "10.10.13.0/24", "10.10.14.0/24"]
+  default = ["10.10.11.0/24", "10.10.12.0/24", "10.10.13.0/24", "10.10.14.0/24", "10.10.15.0/24", "10.10.16.0/24"]
 }
 
 variable "subnet_name" {
   type    = list(string)
   default = ["web1", "web2", "app1", "app2", "db1", "db2"]
+}
+
+variable "db_subnet_names" {
+  type    = list(string)
+  default = ["db1", "db2"]
+}
+
+variable "subnet_available_zones" {
+  type    = list(string)
+  default = ["ap-south-1a", "ap-south-1b", "ap-south-1c", "ap-south-1a", "ap-south-1b", "ap-south-1c"]
 }
 
 variable "web_sg_config" {

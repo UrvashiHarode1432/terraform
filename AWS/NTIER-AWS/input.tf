@@ -82,3 +82,8 @@ variable "db_sg_config" {
   })
   description = "this is db security group config"
 }
+
+variable "public_key_path" {
+  type    = string
+  default = "C:/Users/conta/.ssh/id_rsa.pub"
+}
